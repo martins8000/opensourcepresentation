@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open Source as a Business Model</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',Arial,sans-serif;background:#000;color:#f5f5f5}
+.deck{max-width:1280px;margin:auto}
+.slide{min-height:100vh;padding:60px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:
+ radial-gradient(1100px 520px at 88% -8%,#1d1d1d,transparent 60%),
+ radial-gradient(900px 500px at -5% 108%,#151515,transparent 60%),
+ #0b0b0b}
+.slide::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 2px,transparent 2px 90px)}
+.content{position:relative;z-index:2;max-width:1080px}
+.kicker{font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#b8b8b8);font-weight:600;margin-bottom:14px}
+h1{font-size:60px;line-height:1.05;font-weight:700;margin-bottom:16px}
+h2{font-size:42px;line-height:1.1;font-weight:700;margin-bottom:22px}
+ul{list-style:none;font-size:26px;line-height:1.55;color:#f5f5f5}
+ul li{margin-bottom:12px;padding-left:32px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:.72em;width:14px;height:3px;background:#fff;border-radius:2px}
+.small{font-size:18px;color:#b8b8b8}
+.source{font-size:16px;color:#b8b8b8;margin-top:22px}
+.source b{color:#fff;font-weight:600}
+.visual{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.card{background:#161616;border:1px solid #3a3a3a;border-radius:16px;padding:18px 22px;min-width:240px}
+.card .num{font-size:36px;font-weight:700;color:#fff}
+.card .label{font-size:19px;color:#b8b8b8;margin-top:5px}
+.company{display:flex;align-items:center;gap:13px;margin-bottom:10px}
+.logo{width:42px;height:42px;border-radius:10px;background:#fff;padding:5px;object-fit:contain}
+.company .name{font-size:22px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:28px}
+.grid .card{min-width:0}
+.flow{display:flex;align-items:center;gap:15px;margin-top:30px;flex-wrap:wrap}
+.flow .step{background:#161616;border:1px solid #3a3a3a;border-radius:14px;padding:16px 22px;font-size:22px;font-weight:600}
+.arrow{color:#fff;font-size:30px}
+.quote{margin-top:28px;font-size:28px;font-weight:600;color:#fff;border-left:5px solid #fff;padding-left:20px}
+.footer{position:absolute;left:80px;right:80px;bottom:24px;display:flex;justify-content:space-between;font-size:16px;color:#b8b8b8;z-index:2}
+table{width:100%;border-collapse:collapse;margin-top:26px;font-size:22px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid #3a3a3a}
+th{color:#b8b8b8;font-size:18px;text-transform:uppercase;letter-spacing:.08em}
+td b{color:#fff}
+.company-cell{display:flex;align-items:center;gap:11px}
+.company-cell img{width:30px;height:30px;border-radius:7px;background:#fff;padding:3px}
+.notes{background:#000;border-top:3px solid #fff;padding:22px 80px;min-height:170px}
+.notes h4{color:#fff;font-size:16px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.notes p{font-size:17px;line-height:1.5;color:#d8d8d8;max-width:1150px}
+.notes .bridge{margin-top:8px;color:#fff;font-weight:600}
+/* Approved layout: business-model slides only */
+.model-slide{width:1280px;min-height:720px;background:#0b0b0b;padding:54px 72px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.model-slide::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 90% -10%,#1c1c1c,transparent 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.02) 0 2px,transparent 2px 90px)}
+.model-top{position:relative;z-index:2}
+.model-kicker{font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:#a8a8a8;font-weight:600;margin-bottom:8px}
+.model-slide h2{font-size:42px;font-weight:700;line-height:1.1;margin:0}
+.imagine{margin-top:26px;font-size:20px;color:#a8a8a8;font-weight:500}
+.imagine span{color:#cfcfcf;font-weight:500}
+.model-columns{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-top:34px;flex:1}
+.model-left ul{list-style:none;font-size:27px;line-height:1.55}
+.model-left li{margin-bottom:16px;padding-left:34px;position:relative}
+.model-left li::before{content:"";position:absolute;left:0;top:.72em;width:15px;height:3px;background:#fff;border-radius:2px}
+.model-right{border-left:1px solid #333;padding-left:48px}
+.model-company{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.model-logo{width:64px;height:64px;border-radius:14px;background:#fff;padding:7px;object-fit:contain}
+.model-company .name{font-size:30px;font-weight:700}
+.metric{font-size:58px;font-weight:700;line-height:1.05}
+.metric-label{font-size:22px;color:#b8b8b8;margin-top:8px}
+.metric-detail{font-size:21px;color:#d8d8d8;margin-top:20px;line-height:1.5}
+.footnote{font-size:15px;color:#8a8a8a;margin-top:18px;line-height:1.4}
+.model-footer{position:absolute;left:72px;right:72px;bottom:20px;display:flex;justify-content:space-between;font-size:15px;color:#8a8a8a;z-index:2}
+@media print{.slide,.model-slide{page-break-after:always;min-height:auto}}
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide"><div class="content">
+<div class="kicker">University presentation</div>
+<h1>Open Source as a Business Model</h1>
+<p class="small" style="font-size:27px;color:#b8b8b8">How companies make money with free software</p>
+<div class="visual"><div class="card"><div class="label">Your name</div></div><div class="card"><div class="label">Course / date</div></div></div>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>1 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Introduce the central paradox: open-source software can be freely used, modified, and shared, yet companies built around it generate billions in revenue. Explain that this presentation examines how that value is created and captured.</p><p class="bridge">Bridge: “If the software is free, how do companies make billions from it?”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">The paradox</div>
+<h2>Free software. Real businesses.</h2>
+<div class="grid">
+<div class="card"><div class="company"><img class="logo" src="https://www.google.com/s2/favicons?domain=redhat.com&sz=128" alt="redhat.com logo"><div class="name">Red Hat</div></div><div class="num">$6.5B</div><div class="label">2024 revenue <b>[Source 3]</b></div></div>
+<div class="card"><div class="company"><img class="logo" src="https://www.google.com/s2/favicons?domain=mongodb.com&sz=128" alt="mongodb.com logo"><div class="name">MongoDB</div></div><div class="num">$2.006B</div><div class="label">FY2025 revenue <b>[Source 4]</b></div></div>
+<div class="card"><div class="company"><img class="logo" src="https://www.google.com/s2/favicons?domain=confluent.io&sz=128" alt="confluent.io logo"><div class="name">Confluent</div></div><div class="num">$963.6M</div><div class="label">2024 revenue <b>[Source 6]</b></div></div>
+<div class="card"><div class="company"><img class="logo" src="https://www.google.com/s2/favicons?domain=about.gitlab.com&sz=128" alt="about.gitlab.com logo"><div class="name">GitLab</div></div><div class="num">$759.2M</div><div class="label">FY2025 revenue <b>[Source 5]</b></div></div>
+</div>
+<p class="source">Company-reported annual revenues; not revenue from code sales alone.</p>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>2 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>These companies are built around open-source software, yet they generate substantial revenue. None of them sells the underlying code as its main product. Their revenue comes from commercial offerings built around the software.</p><p class="bridge">Bridge: “None of these companies sells the code itself. So what exactly are they selling?”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Definition</div>
+<h2>What does “open source” mean?</h2>
+<ul><li>Source code is publicly available</li><li>Users can inspect, modify, and redistribute it</li><li>Distributed under an open-source license</li><li>“Free” means freedom—not necessarily zero cost</li></ul>
+<div class="visual"><div class="card"><div class="label">Code file</div></div><div class="card"><div class="label">Inspect</div></div><div class="card"><div class="label">Modify</div></div><div class="card"><div class="label">Share</div></div></div>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>3 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Open source means that source code is available under a license granting important freedoms: to inspect, modify, and redistribute the software. “Free” refers primarily to freedom, not necessarily to a zero price. Companies can charge for products and services built around open-source software.</p><p class="bridge">Bridge: “But if anyone can use, modify, and share the software, where is the business opportunity?”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Key idea</div>
+<h2>Companies do not sell the code.</h2>
+<p style="font-size:26px;color:#b8b8b8;margin-bottom:18px">They sell what surrounds the code:</p>
+<ul><li>Support</li><li>Reliability</li><li>Convenience</li><li>Enterprise features</li><li>Hosting</li><li>Legal certainty</li><li>Ecosystem access</li></ul>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>4 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>The business opportunity is not usually in selling the code itself. Instead, companies reduce friction for customers: they help them deploy, operate, secure, scale, integrate, and comply with software requirements. The commercial offer surrounds the freely available technology.</p><p class="bridge">Bridge: “That gives us six main ways to turn open source into revenue.”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Framework</div>
+<h2>Six ways to monetize open source</h2>
+<div class="grid">
+<div class="card"><div class="num">1</div><div class="label">Support and subscription</div></div>
+<div class="card"><div class="num">2</div><div class="label">Open core</div></div>
+<div class="card"><div class="num">3</div><div class="label">Dual licensing</div></div>
+<div class="card"><div class="num">4</div><div class="label">Managed cloud / SaaS</div></div>
+<div class="card"><div class="num">5</div><div class="label">Platform and ecosystem</div></div>
+<div class="card"><div class="num">6</div><div class="label">Funding-based sustainability</div></div>
+</div>
+<p class="source">Model taxonomy informed by Duparc et al., “Archetypes of Open-Source Business Models,” <i>Electronic Markets</i>, 2022. <b>[Source 1]</b></p>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>5 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>These models are not always completely separate in practice; companies often combine several. Each has a different main answer to the question: “What is the customer paying for?”</p><p class="bridge">Bridge: “For each model, we will ask the same question: what exactly does the customer pay for?”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 1</div>
+<h2>1. Support and subscription</h2>
+<div class="imagine"><span>Imagine:</span> a free app with a paid premium support plan.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Software is free</li><li>Company sells expertise and reliability</li><li>Support, updates, security, training</li><li>Recurring enterprise subscription</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=redhat.com&sz=128" alt="redhat.com logo"><div class="name">Red Hat</div></div>
+<div class="metric">$6.5B</div>
+<div class="metric-label">Revenue in 2024</div>
+<div class="metric-detail">Enterprise Linux<br>Support, certification, cloud platform</div>
+<div class="footnote">[3] IBM, 2025 Investor Day Charts</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>6 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Support can be sold as a service, while a subscription productizes that support into a recurring, standardized offering. Red Hat combines both: it sells enterprise support, certified software, and subscriptions around open-source technologies.</p><p class="bridge">Bridge: “Support solves operational risk. But what happens when customers need features that the free version does not provide?”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 2</div>
+<h2>2. Open core</h2>
+<div class="imagine"><span>Imagine:</span> a free basic house; pay for extra rooms and a garage.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Free open-source core</li><li>Paid proprietary additions</li><li>Enterprise, security, compliance, and scale features</li><li>Community edition and commercial edition</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=about.gitlab.com&sz=128" alt="about.gitlab.com logo"><div class="name">GitLab</div></div>
+<div class="metric">$759.2M</div>
+<div class="metric-label">Revenue in FY2025</div>
+<div class="metric-detail">31% year-over-year growth<br>Free core, paid Premium and Ultimate tiers</div>
+<div class="footnote">[5] GitLab Inc., Form 10-K for fiscal year 2025</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>7 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>The open-source version is useful, but the commercial version adds capabilities that matter especially to larger organizations. GitLab is an example of this approach: its free core is complemented by paid Premium and Ultimate tiers.</p><p class="bridge">Bridge: “Open core limits functionality. Dual licensing limits the legal terms of use.”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 3</div>
+<h2>3. Dual licensing</h2>
+<div class="imagine"><span>Imagine:</span> a free photo with attribution; pay to use it commercially without restrictions.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Same software, two licenses</li><li>Open-source license: free under conditions</li><li>Commercial license: paid alternative terms</li><li>Company sells legal certainty</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=qt.io&sz=128" alt="qt.io logo"><div class="name">Qt</div></div>
+<div class="metric">EUR 209.1M</div>
+<div class="metric-label">Net sales in 2024</div>
+<div class="metric-detail">15.7% year-over-year growth<br>Open-source and commercial licenses</div>
+<div class="footnote">[7] Qt Group Plc, Annual Report 2024</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>8 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>The company may offer the same or very similar software under different licenses. Customers pay when they need licensing terms that fit their commercial use case. The commercial license provides legal certainty and flexibility.</p><p class="bridge">Bridge: “But many customers do not want to operate software themselves. They want someone else to run it.”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 4</div>
+<h2>4. Managed cloud / SaaS</h2>
+<div class="imagine"><span>Imagine:</span> a free washing machine at home; pay per wash at a laundromat.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Company hosts the software</li><li>Customer pays for convenience</li><li>Hosting, backups, upgrades, monitoring, scaling</li><li>Subscription or usage-based pricing</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=mongodb.com&sz=128" alt="mongodb.com logo"><div class="name">MongoDB Atlas</div></div>
+<div class="metric">$2.006B</div>
+<div class="metric-label">Revenue in FY2025</div>
+<div class="metric-detail">97% subscription revenue<br>Managed database service</div>
+<div class="footnote">[4] MongoDB, Inc., Form 10-K for fiscal year 2025</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>9 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Customers are not paying for the software code; they are paying for someone else to run it reliably. MongoDB Atlas is a managed database service built around MongoDB’s database technology.</p><p class="bridge">Bridge: “SaaS monetizes operations. A platform monetizes the ecosystem around the software.”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 5</div>
+<h2>5. Platform and ecosystem</h2>
+<div class="imagine"><span>Imagine:</span> a free WordPress website; pay for a premium theme or plugin.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Open technology attracts users and partners</li><li>Company monetizes the surrounding platform</li><li>Cloud usage, enterprise features, integrations, partners</li><li>Value grows with the ecosystem</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=confluent.io&sz=128" alt="confluent.io logo"><div class="name">Confluent</div></div>
+<div class="metric">$963.6M</div>
+<div class="metric-label">Revenue in 2024</div>
+<div class="metric-detail">Built around open-source Apache Kafka<br>24% year-over-year growth<br>Confluent Cloud and Confluent Platform</div>
+<div class="footnote">[6] Confluent, Inc., Q4 and Fiscal Year 2024 financial results, SEC Exhibit 99.1</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>10 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>The open-source technology creates adoption and a community. The company then monetizes the commercial platform, managed cloud service, enterprise features, and ecosystem around it. Confluent is built around Apache Kafka.</p><p class="bridge">Bridge: “So far, companies have charged customers directly. But some projects are funded indirectly by their community.”</p></div>
+<section class="model-slide"><div class="model-top">
+<div class="model-kicker">Model 6</div>
+<h2>6. Funding-based sustainability</h2>
+<div class="imagine"><span>Imagine:</span> LibreOffice: free software, funded by donations.</div>
+</div>
+<div class="model-columns">
+<div class="model-left"><ul><li>Software is not sold directly</li><li>Funded by donations and sponsors</li><li>Corporate patrons, grants, events, training</li><li>Goal: maintain a shared public good</li></ul></div>
+<div class="model-right">
+<div class="model-company"><img class="logo" src="https://www.google.com/s2/favicons?domain=blender.org&sz=128" alt="blender.org logo"><div class="name">Blender</div></div>
+<div class="metric">EUR 3.106M</div>
+<div class="metric-label">Total income in 2024</div>
+<div class="metric-detail">Donations from individuals and companies<br>Corporate patrons and sponsors<br>Blender Studio subscriptions and training</div>
+<div class="footnote">[8] Blender Foundation, Annual Report 2024</div>
+</div></div>
+<div class="model-footer"><span>Open Source as a Business Model</span><span>11 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Blender is free and open source, but its development is funded through donations, corporate support, Blender Studio subscriptions, training, and events. In 2024, the Blender Foundation reported EUR 3.106 million in total income.</p><p class="bridge">Bridge: “Now that we have seen all six models, let us look at the largest companies proving that these approaches can scale.”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Scale</div>
+<h2>Open source at scale</h2>
+<table>
+<tr><th>Company</th><th>Main model</th><th>Revenue</th></tr>
+<tr><td><div class="company-cell"><img class="logo" src="https://www.google.com/s2/favicons?domain=redhat.com&sz=128" alt="redhat.com logo"> Red Hat</div></td><td>Support and subscription</td><td>$6.5B in 2024 <b>[Source 3]</b></td></tr>
+<tr><td><div class="company-cell"><img class="logo" src="https://www.google.com/s2/favicons?domain=mongodb.com&sz=128" alt="mongodb.com logo"> MongoDB</div></td><td>Managed cloud / SaaS</td><td>$2.006B in FY2025 <b>[Source 4]</b></td></tr>
+<tr><td><div class="company-cell"><img class="logo" src="https://www.google.com/s2/favicons?domain=elastic.co&sz=128" alt="elastic.co logo"> Elastic</div></td><td>Open core + cloud</td><td>$1.483B in FY2025 <b>[Source 9]</b></td></tr>
+<tr><td><div class="company-cell"><img class="logo" src="https://www.google.com/s2/favicons?domain=about.gitlab.com&sz=128" alt="about.gitlab.com logo"> GitLab</div></td><td>Open core + SaaS</td><td>$759.2M in FY2025 <b>[Source 5]</b></td></tr>
+</table>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>12 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>These are company revenues, not revenue generated exclusively by open-source code. That is the point: open source creates adoption and trust, while the company monetizes reliability, convenience, enterprise features, scale, or legal certainty.</p><p class="bridge">Bridge: “These are not small niche businesses. They show that open source can be the foundation of very large companies.”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Common pattern</div>
+<h2>The pattern behind the models</h2>
+<div class="flow"><div class="step">Open-source adoption</div><div class="arrow">→</div><div class="step">Customer friction</div><div class="arrow">→</div><div class="step">Paid solution</div></div>
+<ul style="margin-top:24px"><li>Risk</li><li>Complexity</li><li>Downtime</li><li>Compliance issues</li><li>Scaling problems</li><li>Lost time</li></ul>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>13 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Open source creates widespread adoption and trust. Companies then earn revenue by removing the operational and commercial friction that organizations face when using software in production.</p><p class="bridge">Bridge: “So the real product is not the code. It is the outcome the customer gets from using it.”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">Closing</div>
+<h2>What open-source companies really sell</h2>
+<ul><li>Not the code</li><li>But the removal of friction:</li><li>Risk</li><li>Complexity</li><li>Downtime</li><li>Compliance</li><li>Scaling</li><li>Time</li></ul>
+<div class="quote">The code creates the community and trust. The business model turns that trust into revenue.</div>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>14 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>Close by repeating the central idea: open-source companies do not sell the code; they sell the removal of friction. The freely available code builds community and trust, while the business model converts that trust into revenue.</p><p class="bridge">Bridge: “Thank you. I am happy to take questions.”</p></div>
+<section class="slide"><div class="content">
+<div class="kicker">References</div>
+<h2>Sources</h2>
+<ul class="small" style="font-size:18px;line-height:1.7">
+<li><b>[Source 1]</b> Duparc, Möller, Jussen, Stachon, Algac, and Otto, “Archetypes of Open-Source Business Models,” <i>Electronic Markets</i>, 2022 — https://link.springer.com/article/10.1007/s12525-022-00557-9</li>
+<li><b>[Source 2]</b> “Business and Revenue Models and Commercial Agreements,” Oxford Academic, 2022 — https://academic.oup.com/book/44727/chapter/378967972</li>
+<li><b>[Source 3]</b> IBM, 2025 Investor Day Charts — https://www.ibm.com/downloads/documents/us-en/11ed328699d6e994</li>
+<li><b>[Source 4]</b> MongoDB, Inc., Form 10-K for fiscal year 2025 — https://www.sec.gov/Archives/edgar/data/1441816/000144181625000057/mdb-20250131.htm</li>
+<li><b>[Source 5]</b> GitLab Inc., Form 10-K for fiscal year 2025 — https://www.sec.gov/Archives/edgar/data/1653482/000162828025014344/gtlb-20250131.htm</li>
+<li><b>[Source 6]</b> Confluent, Inc., Q4 and Fiscal Year 2024 financial results, SEC Exhibit 99.1 — https://www.sec.gov/Archives/edgar/data/0001699838/000095017025017884/cflt-ex99_1.htm</li>
+<li><b>[Source 7]</b> Qt Group Plc, Annual Report 2024 — https://www.qt.io/hubfs/_website/QtV2/QtV2%20Investors/2024/Annual%20Report/Qt-AnnualReport-2024-ENG.pdf</li>
+<li><b>[Source 8]</b> Blender Foundation, Annual Report 2024 — https://www.blendernation.com/2025/09/16/blender-foundation-annual-report-2024/</li>
+<li><b>[Source 9]</b> Elastic N.V., Form 10-K for fiscal year 2025 — https://www.sec.gov/Archives/edgar/data/1707753/000170775325000021/estc-20250430.htm</li>
+</ul>
+</div><div class="footer"><span>Open Source as a Business Model</span><span>15 / 15</span></div></section><div class="notes"><h4>Speaker notes</h4><p>The business-model framework is based on peer-reviewed research, while the financial figures come from company annual reports, SEC filings, and official investor materials.</p></div>
+</div>
+</body>
+</html>
